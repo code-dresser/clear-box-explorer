@@ -2,11 +2,11 @@ from sklearn.tree import DecisionTreeClassifier, _tree
 import numpy as np
 
 
-def train_decision_tree(X, y, max_depth=None, min_sample_split = 2, random_state = 42):
+def train_decision_tree(X, y, max_depth=None, min_samples_split = 2, random_state = 42):
     """
     Trains a single Decision Tree Classifier.
     """
-    model = DecisionTreeClassifier(max_depth=max_depth, min_samples_split= min_sample_split, random_state=random_state)
+    model = DecisionTreeClassifier(max_depth=max_depth, min_samples_split= min_samples_split, random_state=random_state)
     model.fit(X,y)
     return model
 

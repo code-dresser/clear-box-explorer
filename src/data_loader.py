@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.datasets import load_iris, fetch_openml, load_wine
+from sklearn.datasets import load_iris, fetch_openml
 
 def load_builtin_iris():
     """
@@ -16,20 +16,6 @@ def load_builtin_iris():
     
     return X, y, target_mapping
 
-
-def load_builtin_wine():
-    """
-    Loads the Wine dataset, ready for multi-class modeling.
-    Returns: X (DataFrame), y (Series), target_mapping (dict)
-    """
-    wine = load_wine()
-    X = pd.DataFrame(wine.data, columns=wine.feature_names)
-    y = pd.Series(wine.target, name="Class")
-
-    # Map target integers to their meaningful names for rule extraction
-    target_mapping = {i: name for i, name in enumerate(wine.target_names)}
-
-    return X, y, target_mapping
 
 
 
