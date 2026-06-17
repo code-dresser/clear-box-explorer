@@ -33,13 +33,19 @@ def load_builtin_titanic():
     cols_to_drop = ['name', 'ticket', 'cabin', 'boat', 'body', 'home.dest']
     df = df.drop(columns=cols_to_drop)
     
+    # === REINFORCED DATA CASTING ===
+    df['pclass'] = df['pclass'].astype(int)
+    df['sibsp'] = df['sibsp'].astype(float)
+    df['parch'] = df['parch'].astype(float)
+    # ===============================
+    
     #Handle missing values
     df['age'] = df['age'].fillna(df['age'].median())
     df['fare'] = df['fare'].fillna(df['fare'].median())
     df['embarked'] = df['embarked'].fillna(df['embarked'].mode()[0])
     
     # Binary encoding for categorical variables to keep tree splits clean
-    df['sex'] = df['sex'].map({'male': 0, 'female': 1})
+    df['sex'] = df['sex'].map({'male': 0, 'female': 1}).astype(int)
     
     # One-hot encode multi-class categoricals (like Port of Embarkation)
     df = pd.get_dummies(df, columns=['embarked'], drop_first=True)

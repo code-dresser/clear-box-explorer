@@ -40,7 +40,7 @@ def plot_decision_boundary(X, y, feature_x, feature_y, target_mapping=None):
     for any two features selected by the user.
     """
     # Isolate the two features
-    X_slice = X[[feature_x, feature_y]]
+    X_slice = X[[feature_x, feature_y]].astype(float)
     
     # Train a 2D model specifically for the background contour
     clf2d = DecisionTreeClassifier(max_depth=4, random_state=42)

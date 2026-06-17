@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Import our custom modules
-from src.data_loader import load_builtin_iris, load_builtin_titanic,load_builtin_wine, process_custom_data
+from src.data_loader import load_builtin_iris, load_builtin_titanic, process_custom_data
 from src.model_engine import train_decision_tree, extract_rules, predict_single_instance
 from src.visualizer import plot_feature_importance, plot_decision_boundary, plot_prediction_gauge, plot_tree_structure
 
